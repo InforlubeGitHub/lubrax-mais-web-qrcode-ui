@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.footer button {
+    padding: 9px 18px;
+    color: var(--one-soft);
+    font-size: var(--fs-xl);
+    border-radius: 4px;
+    border: 1px solid var(--one-soft);
+    background-color: var(--one);
+}
+.footer button:hover { color: var(--one-slim); border: 1px solid var(--one-slim); }
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
