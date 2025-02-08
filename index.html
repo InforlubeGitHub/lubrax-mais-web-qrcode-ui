@@ -9,37 +9,38 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" href="favicon.ico" type="image/ico">
 		<link rel="stylesheet" type="text/css" href="https://cdn.lubraxmaissystem.com/plugins/lubrax/root.css">
-		<!-- <link rel="stylesheet" type="text/css" href="temp/root.css"> -->
-		<link rel="stylesheet" type="text/css" href="https://cdn.lubraxmaissystem.com/plugins/loader/loader.css">
-		<link rel="stylesheet" type="text/css" href="https://cdn.lubraxmaissystem.com/plugins/warnings/warnings.css">
-		<link rel="stylesheet" type="text/css" href="https://cdn.lubraxmaissystem.com/plugins/inputs/inputs.css">
-		<link rel="stylesheet" type="text/css" href="https://cdn.lubraxmaissystem.com/plugins/buttons/buttons.css">
         <link rel="stylesheet" type="text/css" href="index.css">
 		<link rel="stylesheet" type="text/css" href="https://cdn.lubraxmaissystem.com/plugins/lubrax/layers.css">
-		<script type="text/javascript" src="https://cdn.lubraxmaissystem.com/plugins/loader/loader.js"></script>
-		<script type="text/javascript" src="https://cdn.lubraxmaissystem.com/plugins/warnings/warnings.js"></script>
-        <script type="text/javascript" src="https://cdn.lubraxmaissystem.com/plugins/inputs/inputs.js"></script>
-		<script type="text/javascript" src="https://cdn.lubraxmaissystem.com/plugins/masks/mask.js"></script>
-		<script type="text/javascript" src="https://cdn.lubraxmaissystem.com/scripts/converter.js"></script>
+		<script type="text/javascript" src="qrcode.min.js"></script>
 		<script type="text/javascript" src="index.js"></script>
     </head>
 	<body id="Body" class="body" onload="app.launcher();">
         
-        <div id="Header" class="header void"></div>
+        <div id="Header" class="header void no-print">
+			<button type="button" id="Close"></button>
+		</div>
 
         <div id="Wrapper" class="wrapper">
-			Aplicação em construção
+			
+			<div id="Title" class="title"></div>
+
+			<div id="Badge" class="badge hidden">
+				<div id="QRText" class="qr-text">Escaneie o QR Code</div>
+				<div id="QRCode" class="qr-code"></div>
+				<div id="QRIcon" class="qr-icon"></div>
+				<div id="QRLogo" class="qr-logo"></div>
+			</div>
+
+			<div id="User" class="user"></div>
+			<div id="Store" class="store"></div>
+
 		</div>
 
-        <div id="Footer" class="footer">
-			<button type="button" id="Print" class="">Imprimir</button>
+        <div id="Footer" class="footer no-print">
+			<button type="button" id="Print">Imprimir</button>
 		</div>
 
-        <div id="Loader" class="loader"></div>
-
-		<div id="Snackbar" class="snackbar"></div>
-
-		<div id="Error" class="error">Error</div>
+		<div id="Error" class="error no-print">Este dispositivo não possui resolução sufificente para executar a aplicação. Para dispositivo móveis, tente utiliza-lo em modo Landscape, se o problema persistir, acesse novamente o sistema através de dispositivos com resolução igual ou superior a 296 x 592px.</div>
         
 	</body>
 	
