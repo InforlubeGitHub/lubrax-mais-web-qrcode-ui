@@ -106,8 +106,11 @@
         }
 
     .user, .store {
-        width: 256px;
+        width: 100%;
         text-align: center;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 
 @media only screen and (max-height: 592px) {
