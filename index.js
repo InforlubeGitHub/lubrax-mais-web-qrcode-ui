@@ -5,15 +5,11 @@ var app = new Object();
 app.version = "1.0.1";
 
 app.launcher = function() {
-    // Obtém as credenciais do usuário e ponto de venda
-    var user = JSON.parse(localStorage.getItem("user"));
-    var store = JSON.parse(localStorage.getItem("store"));
     // Inicializa os componentes globais da aplicação
     document.getElementById("Close").addEventListener("click", function() { window.close(); });
     document.getElementById("Print").addEventListener("click", function() { window.print(); });
     document.getElementById("User").innerHTML = user.name;
     document.getElementById("Store").innerHTML = store.name;
-
     // Inicializa os componentes de primeiro plano
     loader.build();
     // Obtem as credenciais do usuário
@@ -51,14 +47,15 @@ app.launcher = function() {
     })
     .catch(error => { snackbar.show(error.message.text); })
     .finally(() => { loader.hide(); });
-
-
-
-
-
-
-    // Renderiza o QR Code
+    // Inicializa os componentes de segundo plano
     if (user != undefined && user != null && user != "" && user.id != undefined && user.id != null && user.id != "") {
+        // Obtém as credenciais do usuário e ponto de venda
+        var user = JSON.parse(localStorage.getItem("user"));
+        var store = JSON.parse(localStorage.getItem("store"));
+        //Preenche a identificação do usuário e ponto de venda
+        document.getElementById("User").innerHTML = user.name;
+        document.getElementById("Store").innerHTML = store.name;
+        // Renderiza o QR Code
         let box = document.getElementById("QRCode");
         new QRCode(box,
             {
