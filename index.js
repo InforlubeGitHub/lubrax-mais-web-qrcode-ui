@@ -29,10 +29,30 @@ app.launcher = function() {
     .then(async response => {
         if (response.ok == true) {
             const data = await response.json();
-            localStorage.setItem('apps', JSON.stringify(data.apps));
-            localStorage.setItem('user', JSON.stringify(data.user));
-            localStorage.setItem('store', JSON.stringify(data.store));
-            localStorage.setItem('token', data.token);
+            let apps = data.apps;
+            let user = data.user;
+            let store = data.store;
+            let token = data.token;
+            // Presiste as credenciais do usuário
+            localStorage.setItem('apps', JSON.stringify(apps));
+            localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('store', JSON.stringify(store));
+            localStorage.setItem('token', token);
+            // Preenche a identificação do usuário e ponto de venda
+            document.getElementById("User").innerHTML = user.name;
+            document.getElementById("Store").innerHTML = store.name;
+            // Renderiza o QR Code
+            let box = document.getElementById("QRCode");
+            new QRCode(box,
+                {
+                    text:"https://cadastrofacil.lubraxmaissystem.com/index.html?hash=" + user.id,
+                    width: 200,
+                    height: 200
+                }
+            );
+            // Finaliza a renderização dos elementos
+            document.getElementById("Badge").classList.remove("hidden");
+            document.getElementById("Title").innerHTML = "Seu crachá personalizado"
             return;
         } else {
             if (response.status === 401) {
@@ -40,47 +60,16 @@ app.launcher = function() {
                 window.location.href = "https://auth.lubraxmaissystem.com/";
                 return;
             };
+            if (response.status > 401 && response.status <= 499) {
+                document.getElementById("Badge").classList.add("hidden");
+                document.getElementById("Title").innerHTML = "Não foi possível gerar seu QR Code.<br><br>Por favor, entre em contato com o Suporte Técnico."
+                return;
+            }
         };
         return response.json();
     })
     .catch(error => { snackbar.show(error.message.text); })
     .finally(() => { loader.hide(); });
-    // Inicializa os componentes de segundo plano
-    if (user != undefined && user != null && user != "" && user.id != undefined && user.id != null && user.id != "") {
-        // Obtém as credenciais do usuário e ponto de venda
-        var user = JSON.parse(localStorage.getItem("user"));
-        var store = JSON.parse(localStorage.getItem("store"));
-        //Preenche a identificação do usuário e ponto de venda
-        document.getElementById("User").innerHTML = user.name;
-        document.getElementById("Store").innerHTML = store.name;
-        // Renderiza o QR Code
-        let box = document.getElementById("QRCode");
-        new QRCode(box,
-            {
-                text:"https://cadastrofacil.lubraxmaissystem.com/index.html?hash=" + user.id,
-                width: 200,
-                height: 200
-            }
-        );
-        document.getElementById("Badge").classList.remove("hidden");
-        document.getElementById("Title").innerHTML = "Seu crachá personalizado"
-    } else {
-        document.getElementById("Badge").classList.add("hidden");
-        document.getElementById("Title").innerHTML = "Não foi possível gerar seu QR Code.<br><br>Por favor, entre em contato com o Suporte Técnico."
-    };
     // Finaliza a inicialização da aplicação
     console.log("Lubrax Mais Web - QR Code" + "\n" + "Versão: " + app.version + " (Release) " + "\n\n");
 }
-
-app.qrcode = {
-    make: function() {
-        let box = document.getElementById("QRCode");
-        new QRCode(box,
-            {
-                text:"https://cadastrofacil.lubraxmaissystem.com/index.html?hash=64baf79651b61defccbbed20",
-                width: 200,
-                height: 200
-            }
-        );
-    }
-};
