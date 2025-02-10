@@ -70,12 +70,12 @@
     */
 }
 
-/*
+
 @font-face {
-    font-family: Lubrax;
-    src: url(lubrax) format('woff2');
+    font-family: Lubrax-Type;
+    src: url(https://cdn.lubraxmaissystem.com/plugins/lubrax-display-regular.woff2) format('woff2');
 }
-*/
+
 
 *,
 *::before,
@@ -83,7 +83,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Calibri, Arial, Helvetica;
+    font-family: Lubrax-Type, Arial, Helvetica;
     font-size: 16px;
     font-weight: normal;
     font-style: normal;
