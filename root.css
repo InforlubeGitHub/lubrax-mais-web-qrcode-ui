@@ -1,0 +1,118 @@
+/* Lubrax+ System UI | Root Styles | v2.0.1 */
+
+@charset "UTF-8";
+
+:root {
+    /* Dimensões padronizadas */
+    --us: 16px; /* Ultra small */
+    --xs: 24px; /* Extra small */
+    --sm: 32px; /* Small */
+    --md: 40px; /* Medium */
+    --lg: 48px; /* Large */
+    --xl: 56px; /* Extra large */
+    --ul: 64px; /* Ultra large */
+    
+    /* Tamanhos de fontes padronizados */
+    --fs-us: 10px;
+    --fs-xs: 12px;
+    --fs-sm: 14px;
+    --fs-md: 16px;
+    --fs-lg: 18px;
+    --fs-xl: 20px;
+    --fs-ul: 24px;
+
+    /* Escala de cores neutras */
+    --high: rgba(0, 0, 0, 1.0);             /* Hex: #000000 */
+    --dark: rgba(24, 24, 24, 1.0);          /* Hex: #181818 */
+    --smoke: rgba(64, 64, 64, 1.0);         /* Hex: #404040 */
+    --soft: rgba(128, 128, 128, 1.0);       /* Hex: #808080 */
+    --gray: rgba(168, 168, 168, 1.0);       /* Hex: #a8a8a8 */
+    --light: rgba(232, 232, 232, 1.0);      /* Hex: #e8e8e8 */
+    --slim: rgba(255, 255, 255, 1.0);       /* Hex: #ffffff */
+
+    /* Escala de cores intuitivas */
+    --danger: rgba(244, 67, 54, 1.0);       /* Hex: #f44336 */
+    --info: rgba(33, 150, 243, 1.0);        /* Hex: #2196f3 */
+    --success: rgba(4, 170, 109, 1.0);      /* Hex: #04aa6d */
+    --warning: rgba(255, 152, 0, 1.0);      /* Hex: #ff9800 */
+
+    /* Escala de cores da adentidade visual */
+    --one: rgba(0, 68, 21, 1.0);            /* Hex: #004415 */
+    --one-high: rgba(3, 43, 26, 1.0);       /* Hex: #032b1a */
+    --one-soft: rgba(59, 173, 45, 1.0);     /* Hex: #3bad2d */
+    --one-slim: rgba(132, 234, 0, 1.0);     /* Hex: #84ea00 */
+    
+    --two: rgba(249, 238, 0, 1.0);          /* Hex: #f9ee00 */
+    --two-high: rgba(232, 114, 0, 1.0);     /* Hex: #e87200 */
+    --two-soft: rgba(232, 114, 0, 1.0);     /* Hex: #e87200 */
+    --two-slim: rgba(232, 114, 0, 1.0);     /* Hex: #e87200 */
+    
+    --alt: rgba(99, 102, 111, 1.0);         /* Hex: #63666f */
+    --alt-high: rgba(0, 0, 0, 1.0);         /* Hex: #000000 */
+    --alt-soft: rgba(227, 226, 226, 1.0);   /* Hex: #e3e2e2 */
+    --alt-slim: rgba(255, 255, 255, 1.0);   /* Hex: #ffffff */
+
+    /* Cores de bordas e divisas */
+    --bd-high: rgba(0, 0, 0, 1.0);          /* Hex: #000000 */
+    --bd-soft: rgba(227, 226, 226, 1.0);    /* Hex: #e3e2e2 */
+    --bd-slim: rgba(255, 255, 255, 1.0);    /* Hex: #ffffff */
+
+    /*
+       Escala de cores para aplicação em ícones monocromáticos:
+       
+       > Ícones aplicados sobre backgrounds escuros:
+       >> Sem foco do mouse ou touch: #a8a8a8
+       >> Com foco do mouse ou touch: #f8f8f8
+
+       > Ícones aplicados sobre backgrounds claros:
+       >> Sem foco do mouse ou touch: #a8a8a8
+       >> Com foco do mouse ou touch: #202020
+    */
+}
+
+@font-face {
+    font-family: Lubrax;
+    src: url(lubrax) format('woff2');
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Lubrax, Arial, Helvetica;
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    text-align: left;
+    text-decoration: none;
+    line-height: 1;
+    vertical-align: baseline;
+    letter-spacing: normal;
+    color: #202020;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+    ::-webkit-scrollbar-track {
+        margin: 8px 0px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: var(--gray);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: var(--dark);
+    }
+
+html, body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+b { font-weight: bold; font-size: inherit; color: inherit; }
+i { font-style: italic; font-size: inherit; color: inherit; }
