@@ -8,8 +8,6 @@ app.launcher = function() {
     // Inicializa os componentes globais da aplicação
     document.getElementById("Close").addEventListener("click", function() { window.close(); });
     document.getElementById("Print").addEventListener("click", function() { window.print(); });
-    document.getElementById("User").innerHTML = user.name;
-    document.getElementById("Store").innerHTML = store.name;
     // Inicializa os componentes de primeiro plano
     loader.build();
     // Obtem as credenciais do usuário
